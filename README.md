@@ -32,7 +32,7 @@ source .venv/bin/activate  # Для Linux/Mac
 
 3. Установите зависимости:
 ```bash
-pip install -r requirements.txt
+pip install django
 ```
 
 4. Примените миграции:
