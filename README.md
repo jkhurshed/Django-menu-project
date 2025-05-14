@@ -32,19 +32,10 @@ source .venv/bin/activate  # Для Linux/Mac
 
 3. Установите зависимости:
 ```bash
-pip install django
+pip install -r requirements.txt
 ```
 
-4. Примените миграции:
-```bash
-python manage.py migrate
-```
-6. Запустите команду:
-```bash
-python manage.py collecstatic
-```
-
-7. Запустите сервер разработки:
+4. Запустите сервер разработки:
 ```bash
 python manage.py runserver
 ```
