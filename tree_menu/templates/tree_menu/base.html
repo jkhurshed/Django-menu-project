@@ -3,16 +3,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Tree Menu Demo</title>
+    <title>Древовидное Меню</title>
     <link rel="stylesheet" href="{% static 'tree_menu/css/menu.css' %}">
 </head>
 <body>
     <div style="display: flex;">
         <div style="width: 250px; padding: 20px;">
-            <h3>Main Menu</h3>
+            <h3>Главное Меню</h3>
             {% draw_menu 'main_menu' %}
             
-            <h3>Secondary Menu</h3>
+            <h3>Дополнительное Меню</h3>
             {% draw_menu 'secondary_menu' %}
         </div>
         <div style="flex-grow: 1; padding: 20px;">
