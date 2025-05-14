@@ -3,7 +3,7 @@
 # Python
 __pycache__/
 *.py[cod]
-*.sqlite3
+#*.sqlite3
 
 # Environments
 env/
@@ -14,7 +14,7 @@ ENV/
 *.log
 *.pot
 *.pyc
-db.sqlite3
+#db.sqlite3
 
 # VS Code / Cursor
 .vscode/
@@ -22,6 +22,8 @@ db.sqlite3
 # Migrations
 **/migrations/*.py
 !**/migrations/__init__.py
+!tree_menu/migrations/__init__.py
+!tree_menu/migrations/0001_initial.py
 
 # Static/media (optional)
 staticfiles/
