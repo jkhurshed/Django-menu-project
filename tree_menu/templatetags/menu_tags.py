@@ -4,9 +4,11 @@ from ..models import MenuItem
 
 register = template.Library()
 
-@register.inclusion_tag('tree_menu/menu.html', takes_context=True)
 def draw_menu(context, menu_name):
-    request = context['request']
+    request = context.get('request')
+    if not request:
+        return {'menu_items': [], 'active_branch': set()}
+        
     current_path = request.path
     
     try:
@@ -15,25 +17,27 @@ def draw_menu(context, menu_name):
         current_url_name = None
 
     # Get all menu items for the specified menu in a single query
-    menu_items = MenuItem.objects.filter(menu_name=menu_name).select_related('parent')
-    
-    # Convert queryset to dictionary for O(1) lookups
-    items_dict = {item.id: item for item in menu_items}
+    menu_items = MenuItem.objects.filter(menu_name=menu_name).select_related('parent').order_by('order')
     
     # Create tree structure and find active items
     root_items = []
     active_branch = set()
+    items_dict = {}
     
-    # First pass: build the tree and find the active item
+    # First, collect all items in a dictionary
     for item in menu_items:
-        # Set parent-child relationships
+        items_dict[item.id] = {
+            'item': item,
+            'children': []
+        }
+
+    # Second, build the tree structure
+    for item in menu_items:
         if item.parent_id:
-            parent = items_dict.get(item.parent_id)
-            if not hasattr(parent, 'children'):
-                parent.children = []
-            parent.children.append(item)
+            if item.parent_id in items_dict:
+                items_dict[item.parent_id]['children'].append(items_dict[item.id])
         else:
-            root_items.append(item)
+            root_items.append(items_dict[item.id])
             
         # Check if this item is active
         if (item.url and item.url == current_path) or \
@@ -42,14 +46,11 @@ def draw_menu(context, menu_name):
             active_item = item
             while active_item:
                 active_branch.add(active_item.id)
-                active_item = items_dict.get(active_item.parent_id)
-
-    # Sort all children lists
-    for item in menu_items:
-        if hasattr(item, 'children'):
-            item.children.sort(key=lambda x: x.order)
+                active_item = active_item.parent
 
     return {
         'menu_items': root_items,
         'active_branch': active_branch,
     }
+
+register.inclusion_tag('tree_menu/menu.html', takes_context=True)(draw_menu)
