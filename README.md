@@ -18,12 +18,13 @@
 1. Клонируйте репозиторий:
 ```bash
 git clone https://github.com/jkhurshed/Django-menu-project.git
-cd django-menu-project-main
+cd Django-menu-project
 ```
 
 2. Создайте и активируйте виртуальное окружение:
 ```bash
-python -m venv .venv
+python3 -m venv .venv #for Linux/Mac
+python -m venv .venv #for Windows
 source .venv/bin/activate  # Для Linux/Mac
 # или
 .venv\Scripts\activate  # Для Windows
@@ -38,8 +39,12 @@ pip install -r requirements.txt
 ```bash
 python manage.py migrate
 ```
+6. Запустите команду:
+```bash
+python manage.py collecstatic
+```
 
-6. Запустите сервер разработки:
+7. Запустите сервер разработки:
 ```bash
 python manage.py runserver
 ```
