@@ -1,0 +1,10 @@
+{% load static %}
+
+{% comment %}Recursive template for menu items{% endcomment %}
+{% if menu_items %}
+<ul class="tree-menu">
+    {% for item in menu_items %}
+        {% include "tree_menu/menu_item.html" with item=item %}
+    {% endfor %}
+</ul>
+{% endif %} 

@@ -1,0 +1,13 @@
+{% comment %}Template for individual menu items{% endcomment %}
+<li class="menu-item {% if item.id in active_branch %}active{% endif %}">
+    <a href="{{ item.get_url }}" {% if item.id in active_branch %}class="active"{% endif %}>
+        {{ item.name }}
+    </a>
+    {% if item.children and item.id in active_branch %}
+        <ul class="submenu">
+            {% for child in item.children %}
+                {% include "tree_menu/menu_item.html" with item=child %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+</li> 

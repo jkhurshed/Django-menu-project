@@ -1,0 +1,34 @@
+.tree-menu {
+    list-style: none;
+    padding-left: 0;
+}
+
+.tree-menu ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.menu-item {
+    margin: 5px 0;
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    display: block;
+    border-radius: 4px;
+}
+
+.menu-item a:hover {
+    background-color: #f0f0f0;
+}
+
+.menu-item a.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.submenu {
+    margin-top: 5px;
+} 
