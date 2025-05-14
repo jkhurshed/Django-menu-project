@@ -10,3 +10,15 @@ def about(request):
 
 def contact(request):
     return render(request, 'tree_menu/contact.html')
+
+def web_development(request):
+    return render(request, 'tree_menu/web_development.html')
+
+def mobile_development(request):
+    return render(request, 'tree_menu/mobile_development.html')
+
+def products(request):
+    return render(request, 'tree_menu/products.html')
+
+def support(request):
+    return render(request, 'tree_menu/support.html')

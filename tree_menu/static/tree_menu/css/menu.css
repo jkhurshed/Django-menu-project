@@ -31,4 +31,77 @@
 
 .submenu {
     margin-top: 5px;
+}
+
+/* New styles for content pages */
+.service-content, .products-content, .support-content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #34495e;
+    margin: 20px 0;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.product-item {
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #f8f9fa;
+}
+
+.product-item h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.support-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.support-section {
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #f8f9fa;
+}
+
+.support-section h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.support-section ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 15px 0;
+}
+
+/* General content styles */
+ul {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+p {
+    line-height: 1.6;
+    color: #444;
+    margin: 15px 0;
 } 
